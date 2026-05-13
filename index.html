@@ -9,17 +9,64 @@
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1>BASIC CALCULATOR</h1>
+        <header class="header">
+            <h1>CALCULATOR</h1>
+        </header>
+        <div class="container-main">
+            <div class="left"></div>
+            <div class="center">
+                <div class="top"></div>
+                <div class="middle" id="calculator">
+                    <div class="calc-top">
+                        <div class="control-buttons">
+                            <div class="close control-button"></div>
+                            <div class="minimise control-button"></div>
+                            <div class="maximise control-button"></div>
+                        </div>
+                        <div>
+                            <img src="assets/calc-micro.png" alt="" class="calc-micro">
+                        </div>
+                    </div>
+                    <div class="display" id="display"></div>
+                    <div class="calc-row-1 calc-row">
+                        <div class="button button-color-off"></div>
+                        <div class="button button-color-lg">&#9003;</div>
+                        <div class="button button-color-lg">AC</div>
+                        <div class="button button-color-og">&#xf7;</div>
+                    </div>
+                    <div class="calc-row-2 calc-row">
+                        <div class="button button-color-dg">7</div>
+                        <div class="button button-color-dg">8</div>
+                        <div class="button button-color-dg">9</div>
+                        <div class="button button-color-og">&#xd7;</div>
+                    </div>
+                    <div class="calc-row-3 calc-row">
+                        <div class="button button-color-dg">4</div>
+                        <div class="button button-color-dg">5</div>
+                        <div class="button button-color-dg">6</div>
+                        <div class="button button-color-og">&#x2212;</div>
+                    </div>
+                    <div class="calc-row-4 calc-row">
+                        <div class="button button-color-dg">1</div>
+                        <div class="button button-color-dg">2</div>
+                        <div class="button button-color-dg">3</div>
+                        <div class="button button-color-og">&#x2b;</div>
+                    </div>
+                    <div class="calc-row-5 calc-row">
+                        <div class="button button-color-off"></div>
+                        <div class="button button-color-dg">0</div>
+                        <div class="button button-color-dg">,</div>
+                        <div class="button button-color-og">&#x3d;</div>
+                    </div>
+                </div>
+                <div class="bottom"></div>
+            </div>
+            <div class="right"></div>
         </div>
-        <div class="main">
-            <img src="assets/example.png" id="example" alt="">
-
-        </div>
-        <div class="footer">Created by Ulrik Wichmann, 2026 
+        <footer class="footer">Created by Ulrik Wichmann, 2026 
             <a href="https://github.com/ulle82/calculator" target="_blank">
             <img src="assets/github.png" alt="Github logo" id="github"></a>
-        </div>
+        </footer>
     </div>
     <script src="scripts/script.js"></script>
 </body>

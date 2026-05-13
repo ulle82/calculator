@@ -7,28 +7,148 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 100vh;
+    height: 100vh;
 }
 
-.header {
+.container-main {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    width: 100vw;
+    
+    align-items: center;
+}
+
+header {
+    display: flex;
     height: 100px;
+    width: 100vh;
+    justify-content: center;
 }
 
 .main {
     flex: 1;
 }
 
-.footer {
+footer {
     justify-content: center;
     margin: 20px;
 }
 
 #example {
-    width: 60%;
+    width: 100%;
     height: auto;
 }
 
 #github {
     height: 18px;
     width: auto;
+}
+
+#calculator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 257px;
+    height: 444px;
+    background-color: RGB(35, 40, 41);
+    border-radius: 25px;
+    flex-shrink: 0;
+  
+}
+
+.center {
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+}
+
+.left, .right {
+    width: 700px
+}
+
+.display {
+    display: flex;
+    align-items:end;
+    justify-content: end;
+    width: 233px;
+    height: 50px;
+
+    margin-top: 30px;
+    margin-bottom: 7px;
+    flex-shrink: 0;
+    font-size: 35px;
+    color: white;
+}
+
+.calc-row {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    height: 53px;
+    width: 233px;
+    margin-bottom: 7px;
+  
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 53px;
+    height: 53px;
+    border-radius: 50%;
+    color: white;
+    font-size: 24px;
+}
+
+.button-color-lg {
+    background-color: RGB(113, 117, 117);
+}
+
+.button-color-og {
+    background-color: RGB(255, 139, 0);
+    font-size: 30px;
+}
+
+.button-color-dg {
+    background-color: RGB(69, 74, 75);
+}
+
+.calc-top {
+    display: flex;
+    align-items: center;
+    margin-top: 7px;
+    width: 243px;
+    justify-content: space-between;
+}
+
+.control-buttons {
+    display: flex;
+    width: 65px;
+    justify-content: space-between;
+    margin-left: 10px;
+}
+
+.control-button {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+}
+
+.close {
+    background-color: RGB(255, 92, 96);
+}
+
+.minimise {
+    background-color: RGB(250, 200, 0);
+}
+
+.maximise {
+    background-color: RGB(0, 202, 78);
+}
+
+.calc-micro {
+    height: 41px;
 }
