@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <link rel="stylesheet" href="styles/style.css">
-    <title>Document</title>
+    <title>Calculator</title>
 </head>
 <body>
     <div class="container">
@@ -30,33 +30,33 @@
                     <div class="display" id="display"></div>
                     <div class="calc-row-1 calc-row">
                         <div class="button button-color-off"></div>
-                        <div class="button button-color-lg">&#9003;</div>
-                        <div class="button button-color-lg">AC</div>
-                        <div class="button button-color-og">&#xf7;</div>
+                        <div class="button button-color-lg" id="bs">&#9003;</div>
+                        <div class="button button-color-lg" id="clear">AC</div>
+                        <div class="button button-color-og operator" data-operator="/">&#xf7;</div>
                     </div>
                     <div class="calc-row-2 calc-row">
-                        <div class="button button-color-dg">7</div>
-                        <div class="button button-color-dg">8</div>
-                        <div class="button button-color-dg">9</div>
-                        <div class="button button-color-og">&#xd7;</div>
+                        <div class="button button-color-dg num-button">7</div>
+                        <div class="button button-color-dg num-button">8</div>
+                        <div class="button button-color-dg num-button">9</div>
+                        <div class="button button-color-og operator" data-operator="*">&#xd7;</div>
                     </div>
                     <div class="calc-row-3 calc-row">
-                        <div class="button button-color-dg">4</div>
-                        <div class="button button-color-dg">5</div>
-                        <div class="button button-color-dg">6</div>
-                        <div class="button button-color-og">&#x2212;</div>
+                        <div class="button button-color-dg num-button">4</div>
+                        <div class="button button-color-dg num-button">5</div>
+                        <div class="button button-color-dg num-button">6</div>
+                        <div class="button button-color-og operator" data-operator="-">&#x2212;</div>
                     </div>
                     <div class="calc-row-4 calc-row">
-                        <div class="button button-color-dg">1</div>
-                        <div class="button button-color-dg">2</div>
-                        <div class="button button-color-dg">3</div>
-                        <div class="button button-color-og">&#x2b;</div>
+                        <div class="button button-color-dg num-button">1</div>
+                        <div class="button button-color-dg num-button">2</div>
+                        <div class="button button-color-dg num-button">3</div>
+                        <div class="button button-color-og operator" data-operator="+">&#x2b;</div>
                     </div>
                     <div class="calc-row-5 calc-row">
                         <div class="button button-color-off"></div>
-                        <div class="button button-color-dg">0</div>
+                        <div class="button button-color-dg num-button">0</div>
                         <div class="button button-color-dg">,</div>
-                        <div class="button button-color-og">&#x3d;</div>
+                        <div class="button button-color-og" id="equals">&#x3d;</div>
                     </div>
                 </div>
                 <div class="bottom"></div>
