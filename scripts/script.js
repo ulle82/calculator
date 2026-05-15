@@ -21,6 +21,12 @@ const allClear = document.querySelector('#clear');
 const comma = document.querySelector('#comma');
 const bs = document.querySelector('#bs');
 
+
+// =====================================
+// Function to update the calculator 
+// display
+// =====================================
+
 function updateDisplay() {
     let tempOutput = parseFloat(output);
     checkExponential()
@@ -40,6 +46,11 @@ function updateDisplay() {
         }
     }
 };
+
+
+// =====================================
+// Mathematical functions
+// =====================================
 
 function add(x, y) {
     return x + y;
@@ -61,6 +72,11 @@ function divide(x, y) {
         return x / y;
     }
 }
+
+
+// =====================================
+// Event Listeners
+// =====================================
 
 numberButtons.forEach(numberButton => {
     numberButton.addEventListener("click", (e) => {
@@ -141,6 +157,12 @@ bs.addEventListener("click", () => {
     updateDisplay();
 });
 
+
+// =====================================
+// Functions to convert long numbers
+// to exponents
+// =====================================
+
 function expo(x, f) {
     return Number.parseFloat(x).toExponential(f);
 }
@@ -155,6 +177,11 @@ function checkExponential() {
     }
 };
 
+
+// =====================================
+// Reset function
+// =====================================
+
 function clearAll() {
     output = ""
     firstNumber = ""
@@ -163,3 +190,8 @@ function clearAll() {
     resultDisplayed = false;
     updateDisplay();
 };
+
+
+// =====================================
+// Keyboard functionality
+// =====================================
