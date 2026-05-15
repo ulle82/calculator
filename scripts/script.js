@@ -1,8 +1,17 @@
+// =====================================
+// Initialisation of variables
+// =====================================
+
 let output = "";
 let firstNumber = "";
 let secondNumber = "";
 let operator = "";
 let resultDisplayed = false;
+
+
+// =====================================
+// DOM elements
+// =====================================
 
 const display = document.querySelector('#display');
 const numberButtons = document.querySelectorAll('.num-button');
