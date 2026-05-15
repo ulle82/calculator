@@ -2,6 +2,7 @@ let output = "";
 let firstNumber = "";
 let secondNumber = "";
 let operator = "";
+let resultDisplayed = false;
 
 const display = document.querySelector('#display');
 const numberButtons = document.querySelectorAll('.num-button');
@@ -13,6 +14,7 @@ const bs = document.querySelector('#bs');
 
 function updateDisplay() {
     let tempOutput = parseFloat(output);
+    checkExponential()
     if (isNaN(tempOutput)) {
         display.textContent = "";
     }
@@ -20,7 +22,13 @@ function updateDisplay() {
         display.textContent = ((tempOutput).toLocaleString() + '.');
     }
     else {
-        display.textContent = (tempOutput).toLocaleString();
+        let intOutput = output.split(".");
+        if (intOutput[1]) {
+            display.textContent = parseFloat(intOutput[0]).toLocaleString() + '.' + intOutput[1];
+        }
+        else {
+            display.textContent = parseFloat(intOutput[0]).toLocaleString()
+        }
     }
 };
 
@@ -37,18 +45,28 @@ function multiply(x, y) {
 }
 
 function divide(x, y) {
-    return x / y;
+    if (y === 0) {
+        return 'err'
+    }
+    else {
+        return x / y;
+    }
 }
-
-// Need to finish operate function:
-
-/* function operate() {
-
-} */
 
 numberButtons.forEach(numberButton => {
     numberButton.addEventListener("click", (e) => {
-        output += e.target.textContent;
+        let tempLength = output.length;
+        if (resultDisplayed) {
+            clearAll()
+        }
+        if (output.includes('.')) {
+            tempLength -= 1;
+        }
+        if (tempLength >= 10) {
+        }
+        else {
+            output += e.target.textContent;
+        }
         updateDisplay();
     })
 })
@@ -58,6 +76,7 @@ operatorButtons.forEach(operatorButton => {
         firstNumber = Number(output);
         operator = e.target.dataset.operator;
         output = "";
+        resultDisplayed = false;
         updateDisplay();
     });
 });
@@ -73,20 +92,23 @@ equalsButton.addEventListener("click", () => {
     }
     else if (operator === '/') {
         result = divide(firstNumber, secondNumber);
+        if (result === 'err') {
+            display.textContent = "Err DIV/0";
+            resultDisplayed = true;
+            return;
+        }
     }
     else if (operator === '*') {
         result = multiply(firstNumber, secondNumber);
     }
-    output = parseFloat(result.toFixed(2));
+    output = parseFloat(result.toFixed(2)).toString();
     updateDisplay();
+    resultDisplayed = true;
+    firstNumber = Number(result);
 });
 
 allClear.addEventListener("click", () => {
-    output = ""
-    firstNumber = ""
-    secondNumber = ""
-    operator = ""
-    updateDisplay();
+    clearAll();
 });
 
 comma.addEventListener("click", (e) => {
@@ -101,8 +123,34 @@ comma.addEventListener("click", (e) => {
 });
 
 bs.addEventListener("click", () => {
-    if (output.length > 0) {
+    if (resultDisplayed === true) {
+        return;
+    }
+    else if (output.length > 0) {
         output = output.slice(0, -1);
     }
     updateDisplay();
 });
+
+function expo(x, f) {
+    return Number.parseFloat(x).toExponential(f);
+}
+
+function checkExponential() {
+    let tempLength = output.length;
+    if (output.includes('.')) {
+        tempLength -= 1;
+    }
+    if (tempLength > 10) {
+        output = expo(output, 2);
+    }
+};
+
+function clearAll() {
+    output = ""
+    firstNumber = ""
+    secondNumber = ""
+    operator = ""
+    resultDisplayed = false;
+    updateDisplay();
+};
