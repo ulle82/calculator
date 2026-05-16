@@ -10,7 +10,7 @@ let resultDisplayed = false;
 
 
 // =====================================
-// DOM elements
+// DOM element selectors
 // =====================================
 
 const display = document.querySelector('#display');
@@ -98,38 +98,19 @@ numberButtons.forEach(numberButton => {
 
 operatorButtons.forEach(operatorButton => {
     operatorButton.addEventListener("click", (e) => {
+        if (firstNumber !== "") {
+            calculate()
+        }
         firstNumber = Number(output);
         operator = e.target.dataset.operator;
+        updateDisplay();
         output = "";
         resultDisplayed = false;
-        updateDisplay();
     });
 });
 
 equalsButton.addEventListener("click", () => {
-    secondNumber = Number(output);
-    let result = null;
-    if (operator === '+') {
-        result = add(firstNumber, secondNumber);
-    }
-    else if (operator === '-') {
-        result = subtract(firstNumber, secondNumber);
-    }
-    else if (operator === '/') {
-        result = divide(firstNumber, secondNumber);
-        if (result === 'err') {
-            display.textContent = "Err DIV/0";
-            resultDisplayed = true;
-            return;
-        }
-    }
-    else if (operator === '*') {
-        result = multiply(firstNumber, secondNumber);
-    }
-    output = parseFloat(result.toFixed(2)).toString();
-    updateDisplay();
-    resultDisplayed = true;
-    firstNumber = Number(result);
+    calculate();
 });
 
 allClear.addEventListener("click", () => {
@@ -160,7 +141,7 @@ bs.addEventListener("click", () => {
 
 // =====================================
 // Functions to convert long numbers
-// to exponents
+// to exponents if num > 10 digits
 // =====================================
 
 function expo(x, f) {
@@ -193,5 +174,59 @@ function clearAll() {
 
 
 // =====================================
+// Calculate function to select 
+// appropriate function to call
+// =====================================
+
+function calculate() {
+    secondNumber = Number(output);
+    let result = null;
+    if (operator === '+') {
+        result = add(firstNumber, secondNumber);
+    }
+    else if (operator === '-') {
+        result = subtract(firstNumber, secondNumber);
+    }
+    else if (operator === '/') {
+        result = divide(firstNumber, secondNumber);
+        if (result === 'err') {
+            display.textContent = "Err DIV/0";
+            resultDisplayed = true;
+            return;
+        }
+    }
+    else if (operator === '*') {
+        result = multiply(firstNumber, secondNumber);
+    }
+    output = parseFloat(result.toFixed(2)).toString();
+    updateDisplay();
+    resultDisplayed = true;
+    firstNumber = Number(result);
+};
+
+
+// =====================================
 // Keyboard functionality
 // =====================================
+
+document.addEventListener('keydown', (e) => {
+    numberButtons.forEach((elem) => {
+        if (e.key == elem.textContent) {
+            elem.click();
+        }
+    });
+    operatorButtons.forEach((elem) => {
+        if (e.key == elem.dataset.operator) {
+            elem.click();
+        }
+    });
+    if (e.key === '.' || e.key === ',') {
+        comma.click()
+    }
+    if (e.key === 'Backspace') {
+        bs.click();
+    }
+    if (e.key === '=') {
+        equalsButton.click();
+    }
+});
